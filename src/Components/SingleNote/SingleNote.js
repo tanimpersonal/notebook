@@ -29,6 +29,12 @@ const SingleNote = ({ note }) => {
     });
     await dispatch(fetchNotes());
   };
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const id = note._id;
+    await axios.delete(`http://localhost:5000/notes/${id}`);
+    await dispatch(fetchNotes());
+  };
   return (
     <div className="p-5 border border-primary">
       <h3>{title}</h3>
@@ -44,7 +50,9 @@ const SingleNote = ({ note }) => {
         >
           Edit
         </Button>
-        <Button variant="outline-danger">Delete</Button>
+        <Button onClick={handleDelete} variant="outline-danger">
+          Delete
+        </Button>
         <Button
           onClick={() => {
             handleShow();
