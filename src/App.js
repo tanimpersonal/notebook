@@ -5,13 +5,13 @@ import Header from "./Components/Header/Header";
 import HomePage from "./Components/HomePage/HomePage";
 function App() {
   return (
-    <div>
+    <>
       <Header></Header>
       <Routes>
         <Route path="/" element={<HomePage></HomePage>}></Route>
         <Route path="/admin-panel" element={<AdminPanel></AdminPanel>}></Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
